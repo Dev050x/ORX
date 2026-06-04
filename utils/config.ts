@@ -5,7 +5,9 @@ import os from "os";
 interface Auth {
     [provider: string]: {
         type: string,
-        key: string
+        key: string,
+        model: string,
+        default: boolean
     }
 }
 
@@ -27,7 +29,9 @@ export function writeAuth(provider: string, type: string, key: string) {
         const existing = readAuth();
         existing[provider] = {
             type,
-            key
+            key,
+            model: (provider === "gemini" ? "gemini-2.5-flash" : ""),
+            default: (provider === "gemini" ? true : false),
         };
         fs.writeFileSync(AUTH_FILE, JSON.stringify(existing));
     } catch (error) {
@@ -39,4 +43,22 @@ export function deleteAuth(provider: string) {
     const existing = readAuth();
     delete existing[provider];
     fs.writeFileSync(AUTH_FILE, JSON.stringify(existing));
+}
+
+
+export function setDefault(provider: string, model: string) {
+    const existing = readAuth();
+    for (const [p, data] of Object.entries(existing)) {
+        if (existing[p]?.default === true) {
+            existing[p].default = false;
+            break;
+        }
+    }
+    if (existing[provider]) {
+        existing[provider].default = true;
+        existing[provider].model = model;
+        fs.writeFileSync(AUTH_FILE, JSON.stringify(existing))
+    } else {
+        console.log("please login with this model first");
+    }
 }

@@ -6,4 +6,5 @@ export const logoutCommand = new Command("logout")
     .option('-p, --provider <providerName>', 'Name of the provider (gemini, claude etc)')
     .action((options) => {
         deleteAuth(options.provider);
+        console.log("logout succefully");
     })
