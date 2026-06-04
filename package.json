@@ -1,10 +1,13 @@
 {
-  "name": "opencode",
+  "name": "orx",
   "module": "index.ts",
   "type": "module",
   "private": true,
   "scripts": {
-    "opencode": "bun index.ts"
+    "orx": "bun index.ts"
+  },
+  "bin" : {
+    "orx": "./index.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",

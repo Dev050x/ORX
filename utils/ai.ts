@@ -32,7 +32,9 @@ export async function callAi(content: string) {
                 }),
                 execute: async ({ cmd }) => {
                     console.log("command that ai write: ", cmd);
-                    const result = execSync(cmd).toString();
+                    const result = execSync(cmd, {
+                        cwd: process.cwd()
+                    }).toString();
                     return result;
                 }
             })
