@@ -1,0 +1,27 @@
+{
+    "providers": [
+        {
+            "name": "Openai",
+            "models": [
+                "gpt-3",
+                "gpt-4",
+                "gpt-5"
+            ]
+        },
+        {
+            "name": "Anthropic",
+            "models": [
+                "claude-opus",
+                "claude-sonnet",
+                "claude-haiku"
+            ]
+        },
+        {
+            "name": "Google",
+            "models": [
+                "gemeni-pro",
+                "gemeni-flash"
+            ]
+        }
+    ]
+}
