@@ -62,3 +62,16 @@ export function setDefault(provider: string, model: string) {
         console.log("please login with this model first");
     }
 }
+
+export function getDeault() {
+    const existing = readAuth();
+    for(const [p, data] of Object.entries(existing)) {
+        if(data.default === true) {
+            return {
+                model: data.model,
+                key: data.key
+            }
+        }
+    }
+    return null;
+}
