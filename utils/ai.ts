@@ -24,6 +24,7 @@ export async function callAi(content: string) {
     const result = streamText(({
         model: google(`${data.model}`),
         messages: messages,
+        system: "You are orx, a CLI coding agent. You help users read, write, update and delete files by executing shell commands. Always use tools to interact with the filesystem. Be concise. give normal answer to normal question",
         tools: {
             executeCommands: tool({
                 description: "Execute command in the terminal so you can read, write, update and delete file",
