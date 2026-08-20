@@ -6,12 +6,13 @@
   "scripts": {
     "orx": "bun index.ts"
   },
-  "bin" : {
+  "bin": {
     "orx": "./index.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/commander": "^2.12.5"
+    "@types/commander": "^2.12.5",
+    "@types/react": "^19.2.18"
   },
   "peerDependencies": {
     "typescript": "^5"
@@ -20,6 +21,10 @@
     "@ai-sdk/google": "^3.0.80",
     "ai": "^6.0.196",
     "commander": "^15.0.0",
+    "ink": "^7.1.1",
+    "ink-spinner": "^5.0.0",
+    "ink-text-input": "^6.0.0",
+    "react": "^19.2.8",
     "zod": "^4.4.3"
   }
 }
